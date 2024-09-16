@@ -20,7 +20,7 @@ while ( rota < quantidade ):
     
     totaliza_tempo = 0
     totaliza_consumo = 0
-    totaliza_peso = 0
+    totaliza_velocidade = 0
    
     
 #
@@ -43,11 +43,11 @@ while ( rota < quantidade ):
         consumo_trecho = velocidade_media * tempo_trecho
         totaliza_tempo = totaliza_tempo + tempo_trecho
         totaliza_consumo = totaliza_consumo + consumo_trecho 
-        totaliza_peso = totaliza_peso + velocidade_media
+        totaliza_velocidade = totaliza_velocidade + velocidade_media
         
         trechos = trechos - 1
         
-    consumo_medio = totaliza_consumo / totaliza_peso
+    consumo_medio = totaliza_consumo / totaliza_velocidade
     consumo_rota.append( consumo_medio ) 
     tempo_rota.append( totaliza_tempo )
     rota = rota + 1
@@ -69,7 +69,7 @@ for consumo in consumo_rota:
 print("A rota mais econômica é a rota " + str( rota_economica ))
 
 # 
-# Definir a rota mais rapida.
+# Definir a rota mais rápida.
 #
   
 menor_tempo = tempo_rota[ 0 ]     
