@@ -1,0 +1,62 @@
+#
+# Rotina para calcular a data de vencimento de uma venda.
+#
+
+#
+# Função para determinar se ano é bissexto.
+#
+
+def bissexto( ano ):
+    
+    resto_4 = ano % 4
+    resto_100 = ano % 100
+    
+    def_bissexto = False
+        
+    if ( resto_4 == 0 and resto_100 != 0 ):
+            def_bissexto = True
+            
+    return def_bissexto 
+
+#
+# Função para montar tabela de dias dos meses de um ano.
+#
+
+def tabela_mes( confirma_bissexto ):
+    
+    if confirma_bissexto:
+        mes_dias = [ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ]
+        
+    else:
+        mes_dias = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ]
+        
+    return mes_dias
+
+#
+# Definir data de vencimento.
+#
+
+data_venda = input("Qual a data da venda? dd/mm/aaaa ")
+prazo_pgto = int(input("Qual o prazo de pagamento? "))
+
+ano_venda = int(data_venda[ 6 ] + data_venda[ 7 ] + data_venda[ 8 ] + data_venda[ 9 ])
+mes_venda = int(data_venda[ 3 ] + data_venda[ 4 ])
+dia_venda = int(data_venda[ 0 ] + data_venda[ 1 ])
+
+mes_tabela = tabela_mes(ano_venda)
+resto_dia = mes_tabela[mes_venda - 1] - dia_venda
+resto_pgto = prazo_pgto - resto_dia
+
+if resto_pgto < 0:
+    dia_pgto = dia_venda + prazo_pgto
+    mes_pgto = mes_venda
+    ano_pgto = ano_venda
+    
+elif resto_pgto == 0:
+    dia_pgto = mes_tabela
+    mes_pgto = mes_venda
+    ano_pgto = ano_venda
+    
+else:
+    
+    

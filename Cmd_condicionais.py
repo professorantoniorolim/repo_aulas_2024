@@ -1,0 +1,27 @@
+# Rotina para definir a situação final do aluno.
+
+# Obtenção da notas.
+
+nota1 = float( input('Digite sua primeira nota: '))
+nota2 = float( input('Digite sua segunda nota: '))
+nota3 = float( input('Digite sua terceira nota: '))
+nota4 = float( input('Digite sua quarta nota: '))
+
+# Cálculo da média.
+
+media = (nota1 + nota2 + nota3 + nota4) / 4
+
+# Definição da situação do aluno.
+
+if ( media >= 7 ):
+    print( "Você foi aprovado.")
+    print('Parabens, continue assim!')
+    
+elif ( media >= 5):
+    print( 'Você ficou de recuperação.')
+    print( "Você precisa estudar mais.")
+    
+else:
+    print( "Você foi reprovado.")
+
+print('Sua média foi: ' + str(media))
