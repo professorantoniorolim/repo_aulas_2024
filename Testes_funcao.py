@@ -9,3 +9,9 @@ def rot_teste( a, b, c):
     print(vlr)
     
 rot_teste( 2, 5, 10)
+
+
+var=123456
+var = str(var)
+n1=int(var[0])
+print(n1)
